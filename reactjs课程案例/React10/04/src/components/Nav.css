@@ -1,0 +1,19 @@
+.TopNav{
+    list-style: none;
+    background-color: gray;
+    overflow: hidden;
+}
+
+.TopNav li {
+    float:left;
+    padding:10px 30px;;
+}
+
+.TopNav a{
+    color:white;
+    text-decoration: none;
+}
+
+.cl{
+    clear: both;
+}

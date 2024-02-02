@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Carousel{
+            width:350px;
+            height:350px;
+            border:5px solid gray;
+            position: relative;
+        }
+
+        #imgs div{
+            display: none;
+        }
+
+        #imgs .active{
+            display: block;
+        }
+
+        #lis{
+            position: absolute;
+            left:20px;
+            bottom:20px;
+        }
+
+        #lis div{
+            text-align: center;
+            float:left;
+            width:30px;
+            height:30px;
+            line-height: 30px;
+            border: 1px solid black;
+            background-color: cyan;
+            margin: 10px;
+        }
+
+        #lis .active{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="Carousel">
+        <!---图片摆放区域-->
+        <div id="imgs">
+            <div class="active">
+                <img src="https://img10.360buyimg.com/n1/jfs/t1/238242/8/9827/157395/65894f5aF925cb54f/6a8a250abb90ad6f.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://img10.360buyimg.com/n1/jfs/t1/230292/27/6848/77484/6572f867F50ad4ea2/8cb62d18c93ac834.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://img10.360buyimg.com/n1/jfs/t1/224763/38/9877/159722/65826473F2337ec69/6686a54b3bd45b8b.jpg" alt="">
+            </div>
+            <div>
+                <img src="https://img10.360buyimg.com/n1/jfs/t1/234008/4/3660/98207/655f1cb7F9626217e/239e67596d0a36b8.jpg" alt="">
+            </div>
+        </div>
+        <!--标识区域-->
+        <div id="lis">
+            <div class="active">1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+        </div>
+    </div>
+
+    <script>
+
+
+        //设置当前播放的图片/激活的标识索引
+        let currentIndex = 0;
+        
+        //获取标识的列表
+        let lis = document.querySelectorAll('#lis div');
+        //获取图片列表
+        let imgs = document.querySelectorAll('#imgs div')
+
+
+
+        //播放图片的操作流程
+        playImg = (index)=>{
+            //将对应的标识激活
+            lis.forEach((l,i)=>{
+                    //事件触发的那个元素 我就激活 其他的都取消激活状态
+                    if(index == i){
+                        l.className = 'active';
+                    }else{
+                        l.className = '';
+                    }
+                })
+
+                //显示对应标识序号的图片
+                imgs.forEach((img,i)=>{
+                    //事件触发的那个图片元素 我就激活 其他的都取消激活状态
+                    if(index == i){
+                        img.className = 'active';
+                    }else{
+                        img.className = '';
+                    }
+                })
+
+        }
+
+
+        //为所有的标识添加鼠标进入事件  
+        lis.forEach((li,index)=>{
+            //鼠标进入
+            li.addEventListener('mouseover',()=>{
+                //调用播放图片的函数
+                playImg(index)
+                //同步播放的索引和当前激活的索引
+                currentIndex = index;
+            })
+        })
+
+
+        //循环器开启自动播放
+        setInterval(()=>{
+            //自动播放的时候 currentIndex 必须自增
+            currentIndex = currentIndex +1;
+
+            if(currentIndex>=4){
+                currentIndex = 0;
+            }
+            //播放图片
+            playImg(currentIndex)
+        },2000)
+
+
+    </script>
+    
+</body>
+</html>

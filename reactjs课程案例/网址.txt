@@ -1,0 +1,2 @@
+http://mockjs.com/ mock官网
+文档：https://github.com/nuysoft/Mock/wiki

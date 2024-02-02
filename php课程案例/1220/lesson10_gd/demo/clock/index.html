@@ -1,0 +1,27 @@
+<html>
+	<head>
+<!--===============================================/
+*-----  版本：显示钟表(1.0)----------------------/
+*-----制作人：李振元-----------------------------/
+*			  雪豹战队---------------------------/
+*			  兄弟连40期学员---------------------/
+*-----  邮箱：lzhy5257@163.com-------------------/
+*-----    qq：1454561492-------------------------/
+*===============================================-->
+		<title>时钟显示</title><html>
+	<head>
+	<script type="text/javascript">
+		function showClock()
+		{
+			document.getElementById('clock').src= "clock.php?id="+Math.random();
+			setTimeout('showClock()',1000)
+		}
+	</script>
+</head>
+
+<body onload="showClock()">
+		<center>
+			<img id="clock" src="clock.php" title="Sunshine-BMR" />
+		</center>
+	</body>
+</html>

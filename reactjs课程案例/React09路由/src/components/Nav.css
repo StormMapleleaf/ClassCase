@@ -1,0 +1,22 @@
+.nav{
+    list-style: none;
+}
+
+.nav li{
+    float:left;
+    padding:10px 20px;
+    background-color: black;
+    color:white
+}
+
+a{
+    color:white
+}
+
+.cl{
+    clear:both
+}
+
+a.active{
+    color:red
+}

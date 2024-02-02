@@ -1,0 +1,35 @@
+#Carousel{
+    width:350px;
+    height:350px;
+    border:5px solid gray;
+    position: relative;
+}
+
+#imgs div{
+    display: none;
+}
+
+#imgs .active{
+    display: block;
+}
+
+#lis{
+    position: absolute;
+    left:20px;
+    bottom:20px;
+}
+
+#lis div{
+    text-align: center;
+    float:left;
+    width:30px;
+    height:30px;
+    line-height: 30px;
+    border: 1px solid black;
+    background-color: cyan;
+    margin: 10px;
+}
+
+#lis .active{
+    background-color: red;
+}
